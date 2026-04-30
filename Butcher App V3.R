@@ -242,6 +242,7 @@ server <- function(input, output, session) {
     
     # Special handling for multi-arm example warning
     if (grepl("Multi-arm", input$example_select)) {
+      updateSliderInput(session, "rho_multiarm", value = 0.5)
       updateRadioButtons(session, "assump_multiarm", selected = "Yes")
       shinyalert("Multi-arm example loaded",
                  "Notice that the Multi-arm assumption is now set to 'Yes'. Rho (0.5) will be used.",
